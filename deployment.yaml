@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: boxer
-  namespace: klinik
+  namespace: aplikasi
 spec:
   replicas: 1
   selector:
@@ -13,7 +13,7 @@ spec:
 kind: Deployment
 metadata:
   name: boxer
-  namespace: klinik
+  namespace: aplikasi
 spec:
   replicas: 1
   selector:
@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: boxer
-        image: riqimaruq/boxer:$BUILD_NUMBER
+        image: riqimaruq/boxer:$RELEASE_NUMBER
         resources:
           limits:
             memory: 10Mi
@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: klinik
-        image: riqimaruq/boxer:$BUILD_NUMBER
+        image: riqimaruq/boxer:$RELEASE_NUMBER
         resources:
           limits:
             memory: 10Mi
