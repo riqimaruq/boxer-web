@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boxer
+  namespace: klinik
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: boxer
+  template:
+    metadata:apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boxer
+  namespace: klinik
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: boxer
+  template:
+    metadata:
+      labels:
+        app: boxer
+    spec:
+      containers:
+      - name: boxer
+        image: riqimaruq/boxer:$BUILD_NUMBER
+        resources:
+          limits:
+            memory: 100Mi
+        ports:
+        - name: web
+          containerPort: 80
+      automountServiceAccountToken: false
+      labels:
+        app: klinik
+    spec:
+      containers:
+      - name: klinik
+        image: riqimaruq/boxer:$BUILD_NUMBER
+        resources:
+          limits:
+            memory: 100Mi
+        ports:
+        - name: web
+          containerPort: 80
+      automountServiceAccountToken: false
