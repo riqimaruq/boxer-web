@@ -29,7 +29,7 @@ spec:
         image: riqimaruq/boxer:$BUILD_NUMBER
         resources:
           limits:
-            memory: 100Mi
+            memory: 10Mi
         ports:
         - name: web
           containerPort: 80
@@ -42,7 +42,7 @@ spec:
         image: riqimaruq/boxer:$BUILD_NUMBER
         resources:
           limits:
-            memory: 100Mi
+            memory: 10Mi
         ports:
         - name: web
           containerPort: 80
