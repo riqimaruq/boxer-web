@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: boxer
+  namespace: klinik
+  labels:
+    app: boxer
+spec:
+  type: LoadBalancer
+  ports:
+  - name:  http
+    port:  80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: boxer
